@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolibri_website.Server", "Kolibri_website.Server\Kolibri_website.Server.csproj", "{B818CB03-0190-471C-9818-BE12D7A29E30}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "kolibri_website.client", "kolibri_website.client\kolibri_website.client.esproj", "{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B818CB03-0190-471C-9818-BE12D7A29E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B818CB03-0190-471C-9818-BE12D7A29E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B818CB03-0190-471C-9818-BE12D7A29E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B818CB03-0190-471C-9818-BE12D7A29E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F43498C-19EF-4FA2-9BF9-F59BFAFEC68B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40D98BB9-02C6-451F-B655-832332C84CE5}
+	EndGlobalSection
+EndGlobal
