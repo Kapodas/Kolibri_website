@@ -1,3 +1,5 @@
+using Kolibri_website.Server;
+using LiteDB;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,31 +21,25 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/weather", () =>
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    var Tbl = ShowTable.CallTable();
+    return Tbl;
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.MapGet("/category", () =>
+{
+    var Category = ShowCategory.Show();
+    return Category;
+})
+.WithName("GetCategory")
+.WithOpenApi();
+
 
 app.MapFallbackToFile("/index.html");
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

@@ -1,6 +1,6 @@
 @Kolibri_website.Server_HostAddress = http://localhost:5090
 
-GET {{Kolibri_website.Server_HostAddress}}/weatherforecast/
+GET {{Kolibri_website.Server_HostAddress}}/(weather|category)
 Accept: application/json
 
 ###
