@@ -1,6 +1,8 @@
 @Kolibri_website.Server_HostAddress = http://localhost:5090
 
-GET {{Kolibri_website.Server_HostAddress}}/(weather|category)
+GET {{Kolibri_website.Server_HostAddress}}/(table|category|newcortege)
 Accept: application/json
 
 ###
+
+POST {{Kolibri_website.Server_HostAddress}}/newcortege)

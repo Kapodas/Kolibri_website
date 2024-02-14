@@ -46,7 +46,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/(weather|category)': {
+            '^/(table|category|newcortege)': {
                 target: 'https://localhost:7051/',
                 secure: false
             }

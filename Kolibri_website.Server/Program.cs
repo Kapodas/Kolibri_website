@@ -2,6 +2,8 @@ using Kolibri_website.Server;
 using LiteDB;
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -22,12 +24,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/weather", () =>
+app.MapGet("/table", () =>
 {
     var Tbl = ShowTable.CallTable();
     return Tbl;
 })
-.WithName("GetWeatherForecast")
+.WithName("GetTable")
 .WithOpenApi();
 
 app.MapGet("/category", () =>
@@ -38,6 +40,11 @@ app.MapGet("/category", () =>
 .WithName("GetCategory")
 .WithOpenApi();
 
+app.MapPost("/newcortege", (Cortege cort) =>
+{
+    Add_Cortege.NewCortege(cort);
+}
+);
 
 app.MapFallbackToFile("/index.html");
 
