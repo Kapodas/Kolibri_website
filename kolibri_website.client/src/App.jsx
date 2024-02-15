@@ -51,6 +51,9 @@ function App() {
             <input type="text" id="name" placeholder="Название"></input>
             <input type="text" id="price" placeholder="Цена"></input>
             <button onClick={sendData}>Обновить</button>
+            <p>Удалить продукт (впишите ID)</p>
+            <input type="text" id="delID" placeholder="ID продукта"></input>
+            <button onClick={delData}>Удалить</button>
         </div>
     );
     
@@ -73,20 +76,28 @@ function App() {
         const name = document.getElementById('name').value;
         const price = document.getElementById('price').value;
 
-        const response = await fetch('newcortege?cort=', {
+        const response = await fetch(`newcortege?cort=${ category, name, price }`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ category, name, price })
         });
-        if (response.ok) {
-            // Действия, которые вы хотите выполнить при успешной отправке
-            console.log('Данные успешно отправлены');
-        } else {
-            // Действия в случае ошибки
-            console.error('Ошибка отправки данных на сервер');
-        }
+        
+        Table();
+    }
+    async function delData() {
+        const ids = document.getElementById('delID').value;
+
+        const response = await fetch(`delcortege?id=${ids}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ids })
+        });
+        
+        Table();
     }
 }
 

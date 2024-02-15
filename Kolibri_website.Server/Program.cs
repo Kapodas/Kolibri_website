@@ -45,6 +45,12 @@ app.MapPost("/newcortege", (Cortege cort) =>
     Add_Cortege.NewCortege(cort);
 }
 );
+app.MapPost("/delcortege", (string id) =>
+{
+    int ID = Convert.ToInt32(id);
+    DelCortege.Delete(ID);
+}
+);
 
 app.MapFallbackToFile("/index.html");
 
