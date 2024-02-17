@@ -51,6 +51,19 @@ app.MapPost("/delcortege", (string id) =>
     DelCortege.Delete(ID);
 }
 );
+app.MapPost("/addcategory", (string categ) =>
+{
+    Category.Add(categ);
+}
+);
+app.MapPost("/delcategory", (int id) =>
+{
+    Category.Delete(id);
+}
+);
+
+
+
 
 app.MapFallbackToFile("/index.html");
 

@@ -5,5 +5,5 @@ Accept: application/json
 
 ###
 
-POST {{Kolibri_website.Server_HostAddress}}/newcortege|delcortege)
+POST {{Kolibri_website.Server_HostAddress}}/newcortege|delcortege|addcategory|delcategory)
 Accept: application/json
