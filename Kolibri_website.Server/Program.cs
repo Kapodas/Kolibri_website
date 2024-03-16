@@ -1,5 +1,6 @@
 using Kolibri_website.Server;
 using LiteDB;
+using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -43,14 +44,24 @@ app.MapGet("/category", () =>
 app.MapPost("/newcortege", (Cortege cort) =>
 {
     Add_Cortege.NewCortege(cort);
+    return Results.Ok();
 }
-);
-app.MapPost("/delcortege", (string id) =>
+).Accepts<Cortege>("application/json");
+
+app.MapPost("/delcortege", async (HttpContext context) =>
 {
-    int ID = Convert.ToInt32(id);
-    DelCortege.Delete(ID);
-}
-);
+    using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8))
+    {
+        var id = await reader.ReadToEndAsync();
+        int ID = Convert.ToInt32(id);
+        // Предполагается, что у вас есть функция Delete, которая принимает ID и удаляет соответствующий элемент
+        // Например:
+        DelCortege.Delete(ID);
+    }
+    return Results.Ok();
+});
+
+
 app.MapPost("/addcategory", (string categ) =>
 {
     Category.Add(categ);
@@ -61,7 +72,16 @@ app.MapPost("/delcategory", (int id) =>
     Category.Delete(id);
 }
 );
-
+app.MapPost("/addquestion", (QuestionCortege question) =>
+{
+    SendingMail.Send(question);
+}
+);
+app.MapPost("/addcustomer", (CustomerCortege customer) =>
+{
+    Add_Cortege.NewCustomer(customer);
+}
+);
 
 
 

@@ -46,7 +46,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/(table|category|newcortege|delcortege|addcategory|delcategory)': {
+            '^/(table|category|newcortege|delcortege|addcategory|delcategory|addquestion|addcustomer)': {
                 target: 'https://localhost:8080/',
                 secure: false
             }
